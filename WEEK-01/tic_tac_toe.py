@@ -4,6 +4,14 @@ X, O = 'X', 'O'
 
 
 def main():
+    print("""
+             Tic-Tac-Toe
+    Love is a game of tic-tac-toe,
+Constantly waiting for the next x or o.
+            - Lang Leav -
+
+        - Arias Fernando Rene-
+    """)
     # Create a board dictionary.
     game_board = get_board()
     # X goes first, O goes next.
@@ -26,7 +34,7 @@ def main():
         # Check for a winner.
         if is_winner(game_board, current_player):
             print(get_board_str(game_board))
-            print(current_player + ' has won the game!')
+            print(f'{current_player} has won the game!')
             break
         # Check for a tie.
         elif is_board_full(game_board):
@@ -45,11 +53,7 @@ def get_board():
     Return
         Tic-tac-toe dictionary board.
     """
-    board = {}
-    for space in ALL_SPACES:
-        # All spaces start as ordered numbers.
-        board[space] = space
-    return board
+    return {space: space for space in ALL_SPACES}
 
 
 def get_board_str(board):
@@ -105,12 +109,9 @@ def is_board_full(board):
     Return
         True if every space on the board has been taken.
     """
-    for space in ALL_SPACES:
-        if board[space] in ALL_SPACES:
-            # If any space is available, return False.
-            return False
-    # No spaces are available, so return True.
-    return True
+    boolean = not(any(
+        [True if board[space] in ALL_SPACES else False for space in ALL_SPACES]))
+    return boolean
 
 
 def update_board(board, space, mark):
