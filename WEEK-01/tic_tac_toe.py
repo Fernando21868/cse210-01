@@ -49,7 +49,7 @@ Constantly waiting for the next x or o.
 def get_board():
     """Create a new, tic-tac-toe board.
     Parameters
-        None
+        None.
     Return
         Tic-tac-toe dictionary board.
     """
